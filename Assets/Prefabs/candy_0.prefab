@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frame: 0
   lifeChanges: 1
+  audioComer: {fileID: -6644199214232631395}
 --- !u!61 &8147590017139661117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,8 +160,9 @@ AudioSource:
   m_GameObject: {fileID: 8797156168420755282}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 551110131184477959, guid: 33518261227abcf47b82de07e14953ac,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 101468d1ae5243942add3ab8f19e943b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

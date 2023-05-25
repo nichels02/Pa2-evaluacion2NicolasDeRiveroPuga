@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class points : MonoBehaviour
 {
     //[SerializeField]TextMesh text;
-    tm
+    //tm;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,6 @@ public class points : MonoBehaviour
 
     public void Puntaje(int puntaje)
     {
-        text.text = "Ponts: "+ puntaje;
+        //text.text = "Ponts: "+ puntaje;
     }
 }
