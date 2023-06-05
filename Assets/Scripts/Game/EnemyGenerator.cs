@@ -8,7 +8,7 @@ public class EnemyGenerator : MonoBehaviour
 {
     public static EnemyGenerator instanceEnemy;
     public List<GameObject> Enemy = new List<GameObject>();
-    private float time_to_create = 4f;
+    private float time_to_create = 3f;
     private float actual_time = 0f;
     private float limitSuperior;
     private float limitInferior;
@@ -78,7 +78,6 @@ public class EnemyGenerator : MonoBehaviour
         int lives = player_script.player_lives;
         int live_changer = candy_script.lifeChanges;
         lives -= live_changer;
-        print(lives);
         livess.text = "Lifes: " + lives;
         if (lives <= 0)
         {

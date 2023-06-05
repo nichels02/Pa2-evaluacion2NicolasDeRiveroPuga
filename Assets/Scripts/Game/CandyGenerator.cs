@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
 
 public class CandyGenerator : MonoBehaviour
 {
     public static CandyGenerator instance;
     public List<GameObject> Candies = new List<GameObject>();
-    private float time_to_create = 4f;
+    private float time_to_create = 3f;
     private float actual_time = 0f;
     private float limitSuperior;
     private float limitInferior;
@@ -60,7 +61,6 @@ public class CandyGenerator : MonoBehaviour
         int point = player_script.player_points;
         int points_changer = candy_script.lifeChanges;
         point += points_changer;
-        print(point);
         pointss.text = "Points: " + point;
         player_script.player_points = point;
         candy_script.audioComer.Play();

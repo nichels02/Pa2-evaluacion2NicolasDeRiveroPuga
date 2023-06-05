@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,8 +13,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float limitSuperior;
     [SerializeField] private float limitInferior;
+    private float distance=0;
+    [SerializeField] private TMP_Text texto;
+    [SerializeField] private AudioClip clipEnemigo;
+    [SerializeField] private AudioClip clipCaramelo;
+    private AudioSource audio;
+    [SerializeField] private Transform elTransform;
+
     public int player_lives = 4;
     public int player_points = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +33,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        distance = distance + Time.deltaTime;
+
+        if (distance >= 1)
+        {
+            player_points = player_points + (int)distance;
+            distance = 0f;
+            texto.text = ("Points: " + player_points);
+        }
     }
 
     void SetMinMax()
@@ -38,15 +54,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        audio = other.GetComponent<AudioSource>();
+        Debug.Log(audio.clip.name);
+        audio.PlayOneShot(audio.clip);
         if (other.tag == "Candy")
         {
+            audio.PlayOneShot(clipCaramelo);
             CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
         }
 
 
         if (other.tag == "Enemy")
         {
+            elTransform.position = new Vector3(-5, 0, 0);
+            audio.PlayOneShot(clipEnemigo);
             EnemyGenerator.instanceEnemy.vida(other.gameObject.GetComponent<EnemyControler>(),this);
         }
     }
