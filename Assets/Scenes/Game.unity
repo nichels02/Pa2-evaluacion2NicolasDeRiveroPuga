@@ -987,7 +987,7 @@ MonoBehaviour:
   texto: {fileID: 1962047053}
   clipEnemigo: {fileID: 8300000, guid: 35a355f18d5135d4591885c718bcd33c, type: 3}
   clipCaramelo: {fileID: 8300000, guid: 101468d1ae5243942add3ab8f19e943b, type: 3}
-  elTransform: {fileID: 0}
+  elTransform: {fileID: 1714896971}
   player_lives: 4
   player_points: 0
 --- !u!114 &1714896975

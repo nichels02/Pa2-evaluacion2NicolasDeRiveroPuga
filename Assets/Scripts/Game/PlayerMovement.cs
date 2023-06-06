@@ -56,18 +56,17 @@ public class PlayerMovement : MonoBehaviour
     {
         audio = other.GetComponent<AudioSource>();
         Debug.Log(audio.clip.name);
-        audio.PlayOneShot(audio.clip);
         if (other.tag == "Candy")
         {
-            audio.PlayOneShot(clipCaramelo);
+            audio.Play();
             CandyGenerator.instance.ManageCandy(other.gameObject.GetComponent<CandyController>(), this);
         }
 
 
         if (other.tag == "Enemy")
         {
-            elTransform.position = new Vector3(-5, 0, 0);
-            audio.PlayOneShot(clipEnemigo);
+            elTransform.position = new Vector2(-5, 0);
+            audio.Play();
             EnemyGenerator.instanceEnemy.vida(other.gameObject.GetComponent<EnemyControler>(),this);
         }
     }
